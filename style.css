@@ -1,0 +1,14 @@
+label, select, input{
+    width: 150px;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+.container {
+    text-align: center;
+}
+
+td {
+    border:  2px solid black;
+    padding: 30px;
+}
