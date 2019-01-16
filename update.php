@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include 'connection.php' ;
 
@@ -60,11 +61,11 @@ function MisAJour ($name, $difficulty, $distance, $duration, $heightDifference, 
 		<div>
 			<label for="difficulty">Difficulté</label>
 			<select name="difficulty">
-				<option value="très facile">Très facile</option>
-				<option value="facile">Facile</option>
-				<option value="moyen">Moyen</option>
-				<option value="difficile">Difficile</option>
-				<option value="très difficile">Très difficile</option>
+				<option value="très facile" <?php if ( $donnee['difficulty'] == 'très facile') { echo 'selected';} ?>>Très facile</option>
+				<option value="facile"<?php if ( $donnee['difficulty'] == 'facile') { echo 'selected';} ?>>Facile</option>
+				<option value="moyen"<?php if ( $donnee['difficulty'] == 'moyen') { echo 'selected';} ?>>Moyen</option>
+				<option value="difficile"<?php if ( $donnee['difficulty'] == 'difficile') { echo 'selected';} ?>>Difficile</option>
+				<option value="très difficile"<?php if ( $donnee['difficulty'] == 'très difficile') { echo 'selected';} ?>>Très difficile</option>
 			</select>
 		</div>
 		

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include 'connection.php' ;
 
@@ -41,6 +42,9 @@ function AfficherRandonnee (){
   <body>
   <div class="container">
     <h1>Liste des randonnées</h1>
+
+      <p>Vous etes connecté en tant que <?= $login?> ! </p>
+
         <table>
             <tr>
                 <td>Nom du Parcours : </td>

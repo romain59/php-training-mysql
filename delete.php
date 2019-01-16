@@ -1,5 +1,5 @@
 <?php
-/**** Supprimer une randonnée ****/
+session_start();
 
 include 'connection.php' ;
 
