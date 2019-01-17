@@ -3,6 +3,7 @@ session_start();
 
 include 'connection.php' ;
 
+
 function AfficherRandonnee (){
 
     global $conn;
@@ -22,8 +23,10 @@ function AfficherRandonnee (){
             <td><?= $donnee['distance']?></td>
             <td><?= $donnee['duration']?></td>
             <td><?= $donnee['height_difference']?></td>
+            <?php if (isset($_SESSION['login'])) { ?>
             <td><a href="<?= 'update.php?id='.$id ?>">Editer</a></td>
             <td><a href="<?= 'delete.php?id='.$id ?>">Supprimer</a></td>
+            <?php } ?>
         </tr>
         <?php
     }}
@@ -43,7 +46,8 @@ function AfficherRandonnee (){
   <div class="container">
     <h1>Liste des randonnées</h1>
 
-      <p>Vous etes connecté en tant que <?= $login?> ! </p>
+      <a  class="button" href="login.php">connexion</a><br><br>
+      <a class="button" href="logout.php">deconnexion</a><br><br>
 
         <table>
             <tr>
@@ -52,9 +56,11 @@ function AfficherRandonnee (){
                 <td>Distance : </td>
                 <td>Durée : </td>
                 <td>Denivelé : </td>
-                <td>Editer : </td>
-                <td>Supprimer : </td>
 
+                <?php if (isset($_SESSION['login'])) { ?>
+                    <td>Editer : </td>
+                    <td>Supprimer : </td>
+                <?php } ?>
             </tr>
             <tr>
                 <?php AfficherRandonnee() ?>
@@ -63,7 +69,10 @@ function AfficherRandonnee (){
 
       <br><br>
 
-      <a href="create.php">Ajouter une nouvelle randonnée ! </a>
+
+      <?php if (isset($_SESSION['login'])) { ?>
+          <a href="create.php">Ajouter une nouvelle randonnée ! </a>
+      <?php } ?>
   </div>
   </body>
 </html>

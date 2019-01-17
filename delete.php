@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if (!$_SESSION['login']) {
+    header('Location: read.php');
+}
+
 include 'connection.php' ;
 
 if (!empty($_GET['id'])) {
